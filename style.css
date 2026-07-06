@@ -1,0 +1,357 @@
+/* CSS Custom Properties for Retro Pink Theme */
+:root {
+    --bg-color: #fdf5e6; /* Cream color */
+    --text-color: #5a4a42; /* Dark brown */
+    --accent-pink: #ff8fa3; /* Pink for lines and accents */
+    --accent-pink-light: #ffc4d1;
+    
+    /* Slightly transparent card background so the motif peeks through */
+    --card-bg: rgba(253, 245, 230, 0.90);
+    
+    --karin-color: #ff9a9e; 
+    --fia-color: #a1c4fd;   
+    --all-color: #ff8fa3;   
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    background-image: url('embedded_bg.png');
+    background-size: 100% auto; /* 幅に合わせて高さを自動調整 */
+    background-position: top center;
+    background-attachment: scroll; /* スクロールに合わせて背景も動くように変更 */
+    background-repeat: repeat-y; /* 縦方向にリピートして下まで続くようにする */
+    min-height: 100vh;
+}
+
+/* Wrapper */
+#mainWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header (Logo / Title) */
+.site-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: transparent;
+}
+
+.site-header .header-content {
+    display: inline-block;
+    padding: 20px 40px;
+    background: var(--card-bg);
+    border-radius: 30px;
+    border: 3px solid var(--accent-pink);
+    box-shadow: 8px 8px 0px var(--accent-pink-light);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.site-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--accent-pink);
+    letter-spacing: 2px;
+}
+
+.site-header .subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Horizontal Navigation Bar (07th-expansion style) */
+.gnavi__wrap {
+    width: 100%;
+    background: var(--card-bg);
+    border-top: 2px solid var(--accent-pink);
+    border-bottom: 2px solid var(--accent-pink);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: sticky; /* スクロール時に上にくっつく */
+    top: 0;
+    z-index: 1000;
+}
+
+.gnavi__lists {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.gnavi__list {
+    position: relative;
+}
+
+.gnavi__list > a {
+    display: block;
+    padding: 20px 30px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border-left: 1px solid var(--accent-pink-light);
+}
+
+.gnavi__list:last-child > a {
+    border-right: 1px solid var(--accent-pink-light);
+}
+
+.gnavi__list > a:hover {
+    background: var(--accent-pink);
+    color: #fff;
+}
+
+/* Dropdown Menu */
+.dropdown__lists {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--card-bg);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border: 2px solid var(--accent-pink);
+    border-top: none;
+    z-index: 1001;
+    list-style: none;
+}
+
+.gnavi__list:hover .dropdown__lists {
+    display: block;
+}
+
+.dropdown__list a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-bottom: 1px dashed var(--accent-pink-light);
+    transition: all 0.3s ease;
+}
+
+.dropdown__list:last-child a {
+    border-bottom: none;
+}
+
+.dropdown__list a:hover {
+    background: var(--accent-pink-light);
+    color: #fff;
+    padding-left: 25px; /* ちょっと動くエフェクト */
+}
+
+/* Main Content Container */
+#downmain {
+    width: 100%;
+    padding-top: 40px;
+}
+
+.page-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Timeline */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Diary Entry Cards */
+.card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 40px;
+    border: 2px solid var(--accent-pink-light);
+    box-shadow: 5px 5px 15px rgba(255, 143, 163, 0.15);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: var(--accent-pink);
+}
+
+.card.karin::before { background: var(--karin-color); }
+.card.fia::before { background: var(--fia-color); }
+.card.all::before { background: var(--all-color); }
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px dashed var(--accent-pink-light);
+    padding-bottom: 15px;
+}
+
+.date {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-pink);
+}
+
+.tag {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.tag-all { background: var(--all-color); }
+.tag-karin { background: var(--karin-color); }
+.tag-fia { background: var(--fia-color); }
+
+.card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.card p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.card strong {
+    color: var(--accent-pink);
+}
+
+/* Page Separation (SPA) */
+.page-section {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.page-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Character Profile */
+.char-profile {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    border-left: 5px solid var(--accent-pink);
+}
+
+.char-name {
+    font-size: 1.3rem;
+    color: var(--accent-pink);
+    margin-bottom: 10px;
+    border-bottom: 1px dashed var(--accent-pink-light);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Novel Text Section */
+.novel-text {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 30px;
+    border-radius: 15px;
+    font-family: 'Noto Serif JP', serif; /* A bit of a novel feel if font is loaded, fallback to sans */
+    line-height: 2.2;
+    font-size: 1.1rem;
+    color: #4a3b34;
+}
+
+.novel-text p {
+    margin-bottom: 15px;
+}
+
+.novel-text .read-more {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.novel-text .read-more a {
+    color: var(--accent-pink);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-pink);
+}
+
+.novel-text .read-more a:hover {
+    background: var(--accent-pink-light);
+    color: #fff;
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: var(--card-bg);
+    border-top: 3px solid var(--accent-pink-light);
+    margin-top: 40px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.main-footer p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent-pink);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .site-header h1 {
+        font-size: 1.8rem;
+    }
+    .gnavi__lists {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .gnavi__list > a {
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid var(--accent-pink-light);
+        text-align: center;
+    }
+    .dropdown__lists {
+        position: static; /* モバイルでは下に展開 */
+        box-shadow: none;
+        border: none;
+        background: rgba(255, 196, 209, 0.2);
+    }
+    .card {
+        padding: 25px;
+    }
+    .card h2 {
+        font-size: 1.4rem;
+    }
+}
