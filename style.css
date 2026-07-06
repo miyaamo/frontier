@@ -118,9 +118,9 @@ body {
 .hamburger {
     display: none;
     cursor: pointer;
-    padding: 15px;
+    padding: 15px 25px;
     background: transparent;
-    text-align: center;
+    text-align: right;
     border-bottom: 1px solid var(--accent-pink-light);
 }
 
@@ -129,7 +129,7 @@ body {
     width: 30px;
     height: 3px;
     background-color: var(--accent-pink);
-    margin: 6px auto;
+    margin: 6px 0 6px auto; /* 右寄せ */
     transition: all 0.3s ease;
     border-radius: 3px;
 }
