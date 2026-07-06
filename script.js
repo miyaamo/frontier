@@ -33,6 +33,25 @@ document.addEventListener('DOMContentLoaded', () => {
     switchPage(window.location.hash);
 });
 
+// --- Hamburger Menu Logic (Mobile) ---
+const hamburger = document.getElementById('js-hamburger');
+const navLinksContainer = document.getElementById('js-nav-links');
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+    });
+}
+
+// Close mobile menu when a link is clicked
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            navLinksContainer.classList.remove('active');
+        }
+    });
+});
+
 // --- Fortune Telling Logic ---
 
 const fortunes = [
